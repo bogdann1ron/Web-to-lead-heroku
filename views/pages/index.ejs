@@ -30,6 +30,14 @@
     <input type="submit" name="submit">
     
     </form>
+    <script>
+      document.getElementById('sendForm').onsubmit = function () {
+          if (!grecaptcha.getResponse()) {
+               alert('Вы не заполнили поле Я не робот!');
+               return false; // возвращаем false и предотвращаем отправку формы
+          }
+      }
+      </script>
 </body>
 </html>
 
