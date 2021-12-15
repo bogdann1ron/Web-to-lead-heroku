@@ -7,44 +7,27 @@
 </head>
 <body>
 
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST" onsubmit="return submitUserForm();">
-    
-    <input type=hidden name="oid" value="00D5j0000036dDP">
-    <input type=hidden name="retURL" value="http://google.com">
-KЛалал
-    <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
-    
-    <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
-    
-    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-    
-    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-    
-    <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-    
-    Product:<select  id="00N5j000005b6EP" name="00N5j000005b6EP" title="Product"><option value="">--None--</option><option value="Car">Car</option>
-    <option value="Part">Part</option>
-    <option value="Accessory">Accessory</option>
-    </select><br>
-    <div class="g-recaptcha" data-sitekey="6Ldmk6QdAAAAAC8SHAMCvQEde_d8bFoz7q8zrrbD"></div>
-    <input type="submit" name="submit">
-    
-    </form>
-    <script>
-    var recaptcha_response = '';
-    function submitUserForm() {
-        if(recaptcha_response.length == 0) {
-            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
-            return false;
-        }
-        return true;
+  <form method="post" onsubmit="return submitUserForm();">
+    <div class="g-recaptcha" data-sitekey="6Ldmk6QdAAAAAC8SHAMCvQEde_d8bFoz7q8zrrbD" data-callback="verifyCaptcha"></div>
+    <div id="g-recaptcha-error"></div>
+    <input type="submit" name="submit" value="Submit" />
+</form>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+var recaptcha_response = '';
+function submitUserForm() {
+    if(recaptcha_response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+        return false;
     }
-     
-    function verifyCaptcha(token) {
-        recaptcha_response = token;
-        document.getElementById('g-recaptcha-error').innerHTML = '';
-    }
-    </script>
+    return true;
+}
+ 
+function verifyCaptcha(token) {
+    recaptcha_response = token;
+    document.getElementById('g-recaptcha-error').innerHTML = '';
+}
+</script>
 </body>
 </html>
 
