@@ -82,8 +82,8 @@
    </style>
 </head>
 
-<!-- <body>
-    action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="return submitUserForm();" -->
+<body>
+    <!-- action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="return submitUserForm();" -->
     <form class="form" method="post"  action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="return submitUserForm();">
         <h2>LOAD DATA</h2>
         <div class="form-row">
@@ -121,7 +121,7 @@
         var recaptcha_response = '';
         function submitUserForm() {
             if (recaptcha_response.length == 0) {
-                document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Пройдите проверку Google REcaptha</span>';
+                document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Please pass the Google REcaptha check</span>';
                 return false;
             }
             return true;
