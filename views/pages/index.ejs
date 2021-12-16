@@ -3,150 +3,65 @@
 <head>
     <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
     <title>Document</title>
-     <script async src="https://www.google.com/recaptcha/api.js"></script>
-     <style>
-         * {
-   box-sizing: border-box;
-}
-body {
-   background: #e6f4fd;
-   font-family: 'Roboto', sans-serif;
-}
-.ui-form {
-   max-width: 350px;
-   padding: 80px 30px 30px;
-   margin: 50px auto 30px;
-   background: white;
-}
-.ui-form h3 {
-   position: relative;
-   z-index: 5;
-   margin: 0 0 60px;
-   text-align: center;
-   color: #4a90e2;
-   font-size: 30px;
-   font-weight: normal;
-}
-.ui-form h3:before {
-   content: "";
-   position: absolute;
-   z-index: -1;
-   left: 60px;
-   top: -30px;
-   width: 100px;
-   height: 100px;
-   border-radius: 50%;
-   background: #fee8e4;
-}
-.ui-form h3:after {
-   content: "";
-   position: absolute;
-   z-index: -1;
-   right: 50px;
-   top: -40px;
-   width: 0;
-   height: 0;
-   border-left: 55px solid transparent;
-   border-right: 55px solid transparent;
-   border-bottom: 90px solid #ffe3b5;
-}
-.form-row {
-   position: relative;
-   margin-bottom: 40px;
-}
-.form-row input {
-   display: block;
-   width: 100%;
-   padding: 0 10px;
-   line-height: 40px;
-   font-family: 'Roboto', sans-serif;
-   background: none;
-   border-width: 0;
-   border-bottom: 2px solid #4a90e2;
-   transition: all 0.2s ease;
-}
-.form-row label {
-   position: absolute;
-   left: 13px;
-   color: #9d959d;
-   font-size: 20px;
-   font-weight: 300;
-   transform: translateY(-35px);
-   transition: all 0.2s ease;
-}
-.form-row input:focus {
-   outline: 0;
-   border-color: #F77A52;
-}
-.form-row input:focus+label, .form-row input:valid+label {
-   transform: translateY(-60px);
-   margin-left: -14px;
-   font-size: 14px;
-   font-weight: 400;
-   outline: 0;
-   border-color: #F77A52;
-   color: #F77A52;
-}
-.ui-form input[type="submit"] {
-   width: 100%;
-   padding: 0;
-   line-height: 42px;
-   background: #4a90e2;
-   border-width: 0;
-   color: white;
-   font-size: 20px;
-}
-.ui-form p {
-   margin: 0;
-   padding-top: 10px;
-}
-     </style>
+    <script async src="https://www.google.com/recaptcha/api.js"></script>
+    <link rel="stylesheet" href="main.css">
+   
 </head>
+
 <body>
+    <!-- action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="return submitUserForm();" -->
+    <form class="form" method="post" >
+        <h2>LOAD DATA</h2>
+        <div class="form-row">
+            <input type=hidden name="oid" value="00D5j0000036dDP">
+            <input type=hidden name="retURL" value="http://google.com">
+            <label for="company">Company</label><input required="required" pattern="^[A-Za-zА-Яа-яЁё\s]+$" title="Example, Apple Tech" placeholder="Write your company here.." id="company"
+                maxlength="40" name="company" size="20" type="text" />
+            <label for="first_name">First Name</label><input required="required" pattern="^[A-Za-zА-Яа-яЁё\s]+$" title="Example: Андрей or Andrey" placeholder="Write your first name here.." id="first_name"
+                maxlength="40" name="first_name" size="20" type="text" />
 
-  <form class="ui-form" method="post" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" onsubmit="return submitUserForm();">
-    <div class="form-row">
-    <input type=hidden name="oid" value="00D5j0000036dDP">
-    <input type=hidden name="retURL" value="http://google.com">
+            <label for="last_name">Last Name</label><input required="required" pattern="^[A-Za-zА-Яа-яЁё\s]+$" title="Example: Пультов or Pultov" placeholder="Write your last name here.." id="last_name"
+                maxlength="80" name="last_name" size="20" type="text" />
 
-    <label for="company">Company</label><input  id="company" maxlength="40" name="company" size="20" type="text" /><br>
-    
-    <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
-    
-    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
-    
-    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
-    
-    <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
-    
-    Product:<select  id="00N5j000005b6EP" name="00N5j000005b6EP" title="Product"><option value="">--None--</option><option value="Car">Car</option>
-    <option value="Part">Part</option>
-    <option value="Accessory">Accessory</option>
-    </select><br>
-    <div class="g-recaptcha" data-sitekey="6Ldmk6QdAAAAAC8SHAMCvQEde_d8bFoz7q8zrrbD" data-callback="verifyCaptcha"></div>
-    <div id="g-recaptcha-error"></div>
-    <input type="submit" name="submit" value="Submit" />
-</div>
-</form>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<script>
-var recaptcha_response = '';
-function submitUserForm() {
-    if(recaptcha_response.length == 0) {
-        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
-        return false;
-    }
-    return true;
-}
- 
-function verifyCaptcha(token) {
-    recaptcha_response = token;
-    document.getElementById('g-recaptcha-error').innerHTML = '';
-}
-</script>
+            <label for="email">Email</label><input required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="example@mail.ru" placeholder="example@mail.ru" id="email" maxlength="80" name="email"
+                size="20" type="text" />
+            <label for="phone">Phone</label><input required="required" pattern="^(\+375|375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$" title="Example: +375 33 111-11-11" placeholder="+375 11 111-11-11" id="phone" maxlength="40"
+                name="phone" size="20" type="text" />
+            <div class="pcklst">
+            Product:<select id="00N5j000005b6EP" name="00N5j000005b6EP" title="Product">
+                <option value="">--None--</option>
+                <option value="Car">Car</option>
+                <option value="Part">Part</option>
+                <option value="Accessory">Accessory</option>
+
+            </select>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6Ldmk6QdAAAAAC8SHAMCvQEde_d8bFoz7q8zrrbD"
+                data-callback="verifyCaptcha"></div>
+            <div id="g-recaptcha-error"></div>
+            <input class="btn" type="submit" name="submit" value="Submit" />
+        </div>
+    </form>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script>
+        var recaptcha_response = '';
+        function submitUserForm() {
+            if (recaptcha_response.length == 0) {
+                document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Пройдите проверку Google REcaptha</span>';
+                return false;
+            }
+            return true;
+        }
+
+        function verifyCaptcha(token) {
+            recaptcha_response = token;
+            document.getElementById('g-recaptcha-error').innerHTML = '';
+        }
+
+    </script>
+    <script>
+
+    </script>
 </body>
+
 </html>
-
-
-    
-    
